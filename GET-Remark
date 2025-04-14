@@ -1,1 +1,36 @@
+# GET Remark Code Snippets 
+get walmart reviews data 
+## python 
 
+    import requests
+    
+    headers = {
+        'X-Luckdata-Api-Key': 'your_luckdata_key'
+    }
+    
+    json_data={}
+    
+    response = requests.get(
+        '/api/walmart-API/get_vwzq?url=https://www.walmart.com/ip/NELEUS-Mens-Dry-Fit-Mesh-Athletic-Shirts-3-Pack-Black-Gray-Olive-Green-US-Size-M/439625664?classType=VARIANT',
+        headers=headers,
+        
+    )
+    print(response.json())
+
+## java
+    import java.io.IOException;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    
+    HttpClient client = HttpClient.newHttpClient();
+    
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create("/api/walmart-API/get_v1me?sku=1245052032&page=1"))
+        .GET()
+        
+        .setHeader("X-Luckdata-Api-Key", "your_luckdata_key")
+        .build();
+    
+    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
